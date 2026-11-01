@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg_black{
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body class="bg_black">
+    <ul id="images">
+    <li>
+        <img
+            width="200"
+            id="mountain"
+            src="https://picsum.photos/id/10/200/200"
+            alt="mountain">
+    </li>
+
+    <li>
+        <img
+            width="200"
+            id="forest"
+            src="https://picsum.photos/id/20/200/200"
+            alt="forest">
+    </li>
+
+    <li>
+        <img
+            width="200"
+            id="river"
+            src="https://picsum.photos/id/30/200/200"
+            alt="river">
+    </li>
+
+    <li>
+        <img
+            width="200"
+            id="ocean"
+            src="https://picsum.photos/id/40/200/200"
+            alt="ocean">
+    </li>
+
+    <li>
+        <img
+            width="200"
+            id="city"
+            src="https://picsum.photos/id/50/200/200"
+            alt="city">
+    </li>
+
+    <li>
+        <a id="google" href="https://google.com">Google</a>
+    </li>
+</ul>
+</body>
+<script>
+    let mountain = document.querySelector("#mountain")
+    mountain.addEventListener("click",(event)=>{
+        alert("Clicked the Mountain")
+    })
+/*
+                    Important Event Object Methods
+
+    type , timestamp , defaultPrevented 
+    target , toElement , srcElement , currentTarget
+    clientX , clientY , screenX , screenY
+    altkey , ctrlkey , shiftkey , keyCode
+*/
+document.querySelector("#images").addEventListener("click",()=>{
+    console.log("Getting message from Ul")
+},false)
+document.querySelector("#city").addEventListener("click",()=>{
+    console.log("Getting message from City")
+},false)
+/*
+    capturing  - true - this goes top to bottom
+    bubbling   - false - this goes bottom to top
+
+    event.stopPropagation() prevents event bubbling
+*/
+document.querySelector("#google").addEventListener("click",(event)=>{
+    event.preventDefault()
+    console.log("Going to Google")
+    event.stopPropagation()
+})
+//Here we are trying to remove the image when clicked
+document.querySelector("#images").addEventListener("click",(event)=>{
+    event.preventDefault()
+    console.log(event.target.tagName)
+    console.log(event.target.parentNode)
+    if(event.target.tagName === 'IMG'){
+        let target = event.target.parentNode
+        target.remove()
+    }
+})
+</script>
+</html>
