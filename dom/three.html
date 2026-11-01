@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg-black{
+            background-color: black;
+            color: azure;
+        }
+    </style>
+</head>
+<body class="bg-black">
+
+</body>
+<script>
+    let div = document.createElement("div")
+    console.log(div)
+    div.className="main"
+    div.id="1234"
+    div.style.backgroundColor="orange"
+    div.style.color="black"
+    div.style.padding="12px"
+    div.setAttribute("title","check")
+    //div.innerText = "this is the available data"
+    let text = document.createTextNode("This is from textNode")
+    div.appendChild(text)
+    document.body.appendChild(div)
+</script>
+</html>

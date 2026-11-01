@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning DOM</title>
+    <style>
+        .bg-color{
+            background-color: black;
+            color: orange;
+        }
+    </style>
+</head>
+<body class="bg-color">
+    <ul class="language">
+        <li>Python</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(language){
+        let ulNode = document.querySelector(".language")
+        let element = document.createElement("li")
+        element.innerHTML=`${language}`
+        ulNode.appendChild(element)
+    }
+    function addLanguageOptimal(language){
+        let ulNode = document.querySelector(".language")
+        let element = document.createElement("li")
+        element.appendChild(document.createTextNode(`${language}`))
+        ulNode.appendChild(element)
+    }
+    addLanguage("Java")
+    addLanguage("Rust")
+    addLanguageOptimal("Ruby")
+    //edit
+    let secondElement = document.querySelector(".language li:nth-child(2)")
+    secondElement.innerHTML="Mojo"
+    //edit via replace
+    console.log(secondElement)
+    let  newElement = document.createElement("li")
+    newElement.appendChild(document.createTextNode("TypeScript"))
+    let firstLanguage = document.querySelector(".language li:first-child")
+    firstLanguage.replaceWith(newElement)
+    console.log(firstLanguage)
+    //edit with innerHTML
+    newElement.outerHTML = '<li>Changed with innerHTML</li>'
+    //Deleting
+    let check = document.querySelector(".language li:first-child")
+    check.remove()
+</script>
+</html>
