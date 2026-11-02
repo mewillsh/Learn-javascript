@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg-color{
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body class="bg-color">
+    <h1>Chai aur Code</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    let header = document.querySelector("h1")
+    let button = document.querySelector("#stop")
+    let titleChange = function(){
+        header.innerHTML = "Edited By Harsh Singh"
+    }
+    let logger = function(){
+        console.log("This is TimeOut")
+    }
+    let changer = setTimeout(titleChange, 2000);
+    setTimeout(logger, 5000);
+    addEventListener("click",()=>{
+        //requires timeout ID to remove timeout
+        clearTimeout(changer)
+    })
+</script>
+</html>
