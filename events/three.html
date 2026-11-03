@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg-color{
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body class="bg-color">
+    <h1>Chai aur Code</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    let start = document.querySelector("#start")
+    let stop = document.querySelector("#stop")
+    let loggingFun = function(val){
+        console.log(val,new Date().toLocaleTimeString())
+    }
+    let loggingID
+    start.addEventListener("click",()=>{
+        loggingID = setInterval(loggingFun,2000,"Hello by Harsh")
+        console.log("Started")
+    })
+    stop.addEventListener("click",()=>{
+        clearInterval(loggingID)
+        console.log("Stopped")
+    })
+</script>
+</html>
